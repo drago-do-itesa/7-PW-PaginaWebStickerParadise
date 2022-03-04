@@ -1,0 +1,41 @@
+
+
+/* Estilos para las tarjetas de los productos */
+.tarjeta{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* sombra sutil a las tarjetas */
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+}
+
+.tarjeta-descripcion{
+  color: rgb(68, 68, 68);
+  max-height: 70px;
+  overflow: hidden;
+}
+
+.tarjeta-acciones{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.tarjeta-acciones input{
+  margin-bottom: 5px;
+  padding: 0px;
+}
+.tarjeta-boton{
+    transition-property: background-color, color;
+  transition-duration: .5s;
+  color: black;
+  background-color: #FAF700;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.tarjeta-boton:hover{
+  transition-property: background-color, color;
+  transition-duration: .5s;
+  background-color: black;
+  color: #FAF700;
+}

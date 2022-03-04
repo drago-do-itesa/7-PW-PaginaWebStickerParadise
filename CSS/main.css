@@ -1,2 +1,4 @@
 /* importa el archivo index-header.css */
 @import url("index.css");
+/* importa el archivo productos.css */
+@import url("productos.css");
