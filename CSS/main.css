@@ -2,3 +2,5 @@
 @import url("index.css");
 /* importa el archivo productos.css */
 @import url("productos.css");
+/* importa el archivo iniciar sesion.css */
+@import url("iniciar\ sesion.css");

@@ -23,6 +23,7 @@
 .tarjeta-acciones input{
   margin-bottom: 5px;
   padding: 0px;
+  
 }
 .tarjeta-boton{
     transition-property: background-color, color;
