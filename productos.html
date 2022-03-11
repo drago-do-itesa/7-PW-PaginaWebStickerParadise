@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="CSS/main.css">
 </head>
 
-<body>
+<body onload="existenProductos()">
   <div class="container-fluid bg-negro">
 
     <header>
@@ -71,7 +71,8 @@
               <b>Cantidad:</b>
               <input type="number" value="1" min="1" max="10">
             </div>
-            <button type="button" class="btn tarjeta-boton">Añadir al carrito</button>
+            <!-- ! Se va a agregar en la generacion de estas tarjetas el identificador del producto -->
+            <button type="button" class="btn tarjeta-boton" onclick="agregarProducto('uni-01')">Añadir al carrito</button>
             </p>
           </div>
         </div>
@@ -171,6 +172,7 @@
     </div>
   </div>
 
+  <a href="#" class="btn-flotante" id="btn-flotante"><i class="bi bi-cart4"></i> Ir a carrito</a>
 
 
   <!-- Footer con el contenido de la pagina utilizando bootstrap-->
@@ -203,6 +205,9 @@
 
   <!-- JavaScript de bootstrap -->
   <script src="JS/bootstrap.bundle.min.js"></script>
+
+  <!-- mis scripts -->
+  <script src="/JS/productos.js"></script>
 </body>
 
 </html>
