@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gestion de Stickers</title>
-    <link rel="shortcut icon" href="/Imagenes/logo.ico">
+  <link rel="shortcut icon" href="/Imagenes/logo.ico">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="CSS/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -56,7 +56,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-striped">
+        <table class="table table-striped" id="inventario-productos">
           <thead>
             <tr>
               <th scope="col">Imagen</th>
@@ -97,7 +97,7 @@
           </tbody>
         </table>
 
-        <button type="button" class="btn btn-primary">Agregar Sticker</button>
+        <button type="button" class="btn btn-primary" id="agregar">Agregar Sticker</button>
         <br><br><br><br><br><br><br>
       </div>
     </div>
@@ -134,9 +134,12 @@
       </div>
     </div>
   </footer>
-
+  <!-- script para agregar libreria jQuerry -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- JavaScript de bootstrap -->
-  <script src="JS/bootstrap.bundle.min.js"></script>
+  <script src="/JS/bootstrap.bundle.min.js"></script>
+  <script src="/jQuerry/productos-admin.js"></script>
+
 </body>
 
 </html>

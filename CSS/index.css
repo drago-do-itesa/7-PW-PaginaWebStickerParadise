@@ -40,6 +40,24 @@ header p {
 
 .contenido-principal{
   /* border: solid 1px black; */
+  /* display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-self: center;
+    max-width: 50%; */
+}
+.texto-presentacion{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  max-width: 50%;
+}
+/* mediaquerry para texto presentacion pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .texto-presentacion{
+    max-width: 80%;
+  }
 }
 .contenido-principal p{
   max-width: 600px;
@@ -58,4 +76,14 @@ header p {
 .color-amarillo{
   font-weight: bolder;
   color: #FAF700;
+}
+
+#carrousel-productos{
+  /* tranciciones de propiedad background */
+  transition: background-image, 1.5s;
+  /* tranciciones de propiedad opacity */
+  width: max-content;
+  height: inherit;
+  background-image: url("/Imagenes/productos/producto0.png");
+  background-size: cover;
 }
