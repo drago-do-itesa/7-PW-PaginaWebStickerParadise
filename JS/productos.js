@@ -10,7 +10,6 @@ function agregarProducto(codigoProducto) {
   existenProductos();
 }
 
-
 //metodo que verifica si existen productos en la lista de productos
 function existenProductos() {
   if (listaDeProductos.length > 0) {

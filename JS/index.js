@@ -1,8 +1,8 @@
 //Creacion de scripts para el index
 
 //!Script para el carrusel de imagenes de la pagina principal
-  // variable inicial de index para nuestro carrusel
-  let i = 0;
+// variable inicial de index para nuestro carrusel
+let i = 0;
 //Script para el carrusel de imagenes de la pagina principal
 function carrouselProductos() {
   i++;

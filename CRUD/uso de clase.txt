@@ -1,0 +1,8 @@
+require_once("referencia_relativa/Consultas.php");
+$usuarios = Usuarios::singleton();
+$data = $usuarios->metodo();
+if(count($data)>0){
+	foreach($data as $fila){
+		$fila["nombre"]
+	}
+}
