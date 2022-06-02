@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <!-- Mis estilos css -->
   <link rel="stylesheet" href="CSS/main.css">
+  <!-- Estilos alertify -->
+  <link rel="stylesheet" href="/CSS/alertify.min.css" />
+  <link rel="stylesheet" href="/CSS/themes/default.min.css" />
 </head>
 
 <body>
@@ -102,7 +105,49 @@
           </tbody>
         </table>
 
-        <button type="button" class="btn btn-primary" id="agregar">Agregar Sticker</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Agregar Sticker
+        </button>
+        <button type="button" class="btn btn-danger" id="btn-pdf">
+          Generar PDF de productos
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="php/agregar-producto.php" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="nombre">Nombre del sticker</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del sticker">
+                  </div>
+                  <div class="form-group">
+                    <label for="precio">Precio del sticker</label>
+                    <input type="number" class="form-control" id="precio" name="precio" placeholder="Precio del sticker">
+                  </div>
+                  <div class="form-group">
+                    <label for="descripcion">Descripcion del sticker</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion del sticker">
+                  </div>
+                  <div class="form-group">
+                    <label for="imagen">Imagen del sticker</label>
+                    <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen del sticker">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Agregar Sticker</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <br><br><br><br><br><br><br>
       </div>
     </div>
@@ -141,9 +186,43 @@
   </footer>
   <!-- script para agregar libreria jQuerry -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- script para agregar libreria alertify -->
+  <script src="alertify.min.js"></script>
   <!-- JavaScript de bootstrap -->
   <script src="/JS/bootstrap.bundle.min.js"></script>
   <script src="/jQuerry/productos-admin.js"></script>
+
+
+  <script>
+    //Crear funcion jquery para borrar el producto que se seleccione.
+    $(document).ready(function() {
+      $("#inventario-productos").on("click", ".btn-danger", function() {
+        //obtiene el identificador de tr
+        let id = $(this).parent().parent().attr("id");
+        //Envia el id del producto a eliminar-producto.php
+        $.get("php/eliminar-producto.php", {
+          id1: id
+        }, function(data) {
+          //Si se elimina correctamente, se muestra un mensaje de exito
+          if (data == "exito") {
+            alertify.alert("Producto eliminado correctamente");
+            $("#" + id).remove();
+          } else {
+            alertify.alert("Error al eliminar el producto");
+            return;
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    //Al hacer click en el boton generar pdf, se genera el pdf con los productos
+    $(document).ready(function() {
+      $("#btn-pdf").on("click", function() {
+        window.open("php/generar-pdf.php");
+      });
+    });
+  </script>
 
 </body>
 

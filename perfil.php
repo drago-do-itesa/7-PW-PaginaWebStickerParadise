@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <!-- Mis estilos css -->
   <link rel="stylesheet" href="CSS/main.css">
+  <!-- Estilos alertify -->
+  <link rel="stylesheet" href="/CSS/alertify.min.css" />
+  <link rel="stylesheet" href="/CSS/themes/default.min.css" />
+  <!-- script para agregar libreria alertify -->
+  <script src="alertify.min.js"></script>
 </head>
 
 <body>
@@ -102,7 +107,7 @@
           <th scope="row">
             <button type="button" class="btn btn-primary">Ir comprar</button>
             <button class="btn btn-primary" id="cerrar"> Cerrar sesión</button>
-            <button class="btn btn-primary" id="test"> test</button>
+            <button class="btn btn-primary" id="borrarCuenta"> Eliminar Sesion</button>
           </th>
         </tr>
       </tbody>
@@ -179,6 +184,20 @@
     $("#cerrar").click(function() {
       //Redirigir a la pagina cerrar-sesion.php
       window.location.href = "php/cerrar-sesion.php";
+    });
+
+    $("#borrarCuenta").click(function() {
+      //Enviar datos a mail-borrar-cuenta.php
+      $.get("php/mail-cancelar-cuenta.php", {
+          nombre: $("#nombre").text(),
+          email: $("#direccion").text()
+        },
+        function(data) {
+          alertify.alert("Se ha enviado un correo a su cuenta de correo para cancelar su cuenta");
+          console.log(data);
+          //Redirigir a la pagina cerrar-sesion.php
+          window.location.href = "php/cerrar-sesion.php";
+        });
     });
   </script>
 

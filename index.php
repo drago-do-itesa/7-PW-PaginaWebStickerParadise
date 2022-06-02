@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <!-- Mis estilos css -->
   <link rel="stylesheet" href="CSS/main.css">
+  <!-- Estilos alertify -->
+  <link rel="stylesheet" href="/CSS/alertify.min.css" />
+  <link rel="stylesheet" href="/CSS/themes/default.min.css" />
 </head>
 
 <body>
@@ -106,6 +109,8 @@
   <script src="/JS/prueba.js"></script>
   <!-- script para agregar libreria jQuerry -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- script para agregar libreria alertify -->
+  <script src="alertify.min.js"></script>
   <script>
     $(document).ready(function() {
       //Obtener datos de usuario
@@ -130,6 +135,11 @@
             $("#perfil").attr("href", "perfil.php");
           }
         }
+      });
+
+      //Alerta de alertify al hacer click en el div con la clase contenedor-carrousel
+      $("#carrousel-productos").click(function() {
+        alertify.alert("Hey, esto es una alerta");
       });
     });
   </script>

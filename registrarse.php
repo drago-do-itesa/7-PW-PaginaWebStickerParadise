@@ -15,6 +15,9 @@
 
   <!-- Mis estilos css -->
   <link rel="stylesheet" href="CSS/main.css">
+  <!-- Estilos alertify -->
+  <link rel="stylesheet" href="/CSS/alertify.min.css" />
+  <link rel="stylesheet" href="/CSS/themes/default.min.css" />
 </head>
 
 <body>
@@ -99,6 +102,8 @@
       </div>
     </div>
   </footer>
+  <!-- script para agregar libreria alertify -->
+  <script src="alertify.min.js"></script>
   <!-- script para agregar libreria jQuerry -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/jQuerry/registrarse.js"></script>
@@ -116,14 +121,14 @@
         var password1 = $('#password1').val();
         var password2 = $('#password2').val();
         if (nombre == '' || correo == '' || password1 == '' || password2 == '') {
-          alert('Por favor llena todos los campos');
+          alertify.alert('Por favor llena todos los campos');
           return;
         } else {
           //Verificar que el correo termine en @itesa.edu.mx 
           if (correo.endsWith('@itesa.edu.mx')) {
             //Verificar que el correo no exista en la base de datos
             if (password1 != password2) {
-              alert('Las contraseñas no coinciden');
+              alertify.alert('Las contraseñas no coinciden');
               return;
             } else {
               $.ajax({
@@ -136,10 +141,10 @@
                 },
                 success: function(response) {
                   if (response == '1') {
-                    alert('Usuario creado correctamente');
+                    alertify.alert('Usuario creado correctamente');
                     window.location.href = 'iniciar-sesion.php';
                   } else {
-                    alert('Error al crear el usuario');
+                    alertify.alert('Error al crear el usuario');
                     return;
                   }
                 }
@@ -147,7 +152,7 @@
               });
             }
           } else {
-            alert('El correo debe terminar en @itesa.edu.mx');
+            alertify.alert('El correo debe terminar en @itesa.edu.mx');
             return;
           }
         }

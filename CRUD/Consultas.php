@@ -92,6 +92,17 @@ class Usuarios
       $e->getMessage();
     }
   }
+  public function obtenerUltimoIdSticker()
+  {
+    try {
+      $query = $this->dbh->prepare("SELECT id FROM productos ORDER BY productos.id DESC LIMIT 1");
+      $query->execute();
+      return $query->fetchAll();
+      $this->dbh = null;
+    } catch (PDOException $e) {
+      $e->getMessage();
+    }
+  }
   public function crearUsuario($nombre, $correo, $contra)
   {
     try {
@@ -99,6 +110,18 @@ class Usuarios
       $query->bindParam(1, $nombre);
       $query->bindParam(2, $correo);
       $query->bindParam(3, $contra);
+      $query->execute();
+      return $query->fetchAll();
+      $this->dbh = null;
+    } catch (PDOException $e) {
+      $e->getMessage();
+    }
+  }
+  public function borrarUsuario($correo)
+  {
+    try {
+      $query = $this->dbh->prepare("DELETE FROM usuarios WHERE correo LIKE ?");
+      $query->bindParam(1, $correo);
       $query->execute();
       return $query->fetchAll();
       $this->dbh = null;
